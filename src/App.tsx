@@ -8,6 +8,7 @@ console.log(styles);
 interface itemResource {
   nombre: string;
   descripcion: string;
+  resourceTypesId: string;
   categoria: string;
   fecha: string;
 }
@@ -15,8 +16,9 @@ interface itemResource {
 const resourceHeaders = [
   "Nombre",
   "descripcion",
+  "resourceTypesId",
   "Categoria",
-  "Fecha de Solicitud",
+  "Fecha",
 ];
 
 const titleResource = ["Solicitudes nuevo contenido"];
@@ -32,7 +34,7 @@ useEffect(() => {
   };
 
   fetchResources();
-}, [],);
+}, []);
 
   return (
     <>
