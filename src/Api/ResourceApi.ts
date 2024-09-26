@@ -1,13 +1,12 @@
-import axios,{AxiosResponse} from "axios"
+import axios, { AxiosResponse } from "axios"
 
 const BASE_URL = "https://localhost:7019/Api"
 
 export interface itemResource {
-    nombre: string;
-    descripcion: string;
-    resourceTypesId: string;
-    categoria: string;
-    fecha: string;
+    name: string;
+    description: string;
+    resourceTypesId: number;
+    createDate: string;
   }
 
 export const getResource = async (): Promise<AxiosResponse<itemResource[]>> => {

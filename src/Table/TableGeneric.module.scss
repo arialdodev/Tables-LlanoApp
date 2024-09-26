@@ -6,7 +6,7 @@
   font-family: "Livvic";
 }
 .titleContainer {
-  padding: 10px 0px 11px 10px;
+  padding: 10px 0px 17px 20px;
   background-color: white;
 }
 
@@ -39,6 +39,10 @@
         padding: 20px 0px 20px 10px !important;
         vertical-align: middle;
 
+        >i{
+          padding-left: 13px;
+        }
+
         .badgeColor {
           display: flex;
           width: 56px;
@@ -49,26 +53,20 @@
           align-items: center;
           color: #ffffff;
 
-          &--words {
-            background: linear-gradient(to right, #0abe3c, #0c892f);
-          }
-          &--proverbs {
-            background: linear-gradient(to right, #368bfc, #104fa3);
-          }
           &--legends {
             background: linear-gradient(to right, #f9566e, #c80522);
           }
+          &--words {
+            background: linear-gradient(to right, #0abe3c, #0c892f);
+          }
           &--couplets {
             background: linear-gradient(to right, #e0a83c, #c2830b);
+          }
+          &--proverbs {
+            background: linear-gradient(to right, #368bfc, #104fa3);
           }
         }
       }
     }
   }
-}
-
-.table_generic__arrow {
-  font-family: "Livvic";
-  font-size: 14px;
-  padding: 16px 0px 0px 24px !important;
 }

@@ -6,35 +6,27 @@ import styles from "./App.module.scss";
 console.log(styles);
 
 interface itemResource {
-  nombre: string;
-  descripcion: string;
-  resourceTypesId: string;
-  categoria: string;
-  fecha: string;
+  name: string;
+  description: string;
+  resourceTypesId: number;
+  createDate: string;
 }
 
-const resourceHeaders = [
-  "Nombre",
-  "descripcion",
-  "resourceTypesId",
-  "Categoria",
-  "Fecha",
-];
+const resourceHeaders = ["Nombre", "descripcion", "Categoria", "Fecha"];
 
 const titleResource = ["Solicitudes nuevo contenido"];
 
 function App() {
-  
-const [listResources, setListResources] = useState<itemResource[]>([]);
+  const [listResources, setListResources] = useState<itemResource[]>([]);
 
-useEffect(() => {
-  const fetchResources = async () => {
+  useEffect(() => {
+    const fetchResources = async () => {
       const response = await getResource();
       setListResources(response.data);
-  };
+    };
 
-  fetchResources();
-}, []);
+    fetchResources();
+  }, []);
 
   return (
     <>
@@ -43,7 +35,7 @@ useEffect(() => {
           tableHeaders={resourceHeaders}
           items={listResources}
           tittles={titleResource}
-        ></TableGeneric>
+        />
       </div>
       <br />
       <br />
