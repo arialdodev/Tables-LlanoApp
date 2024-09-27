@@ -22,9 +22,11 @@ function App() {
   useEffect(() => {
     const fetchResources = async () => {
       const response = await getResource();
-      setListResources(response.data);
+      if (response.data.isSuccess) {
+        setListResources(response.data.value);
+      }
     };
-
+  
     fetchResources();
   }, []);
 
