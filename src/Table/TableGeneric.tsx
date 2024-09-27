@@ -13,33 +13,36 @@ interface tableProps {
   tittles: string[];
 }
 
+enum resourceTypesIdEnum {
+  Leyendas = 1,
+  Palabras = 2,
+  Coplas = 3,
+  Refranes = 4,
+}
+
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear();
 
   return `${day}/${month}/${year}`;
 };
 
-function TableGeneric({
-  tableHeaders,
-  items,
-  tittles,
-}: tableProps) {
+function TableGeneric({ tableHeaders, items, tittles }: tableProps) {
 
   const getResourceType = (id: number): string => {
     switch (id) {
-      case 1:
-        return 'Leyendas';
-      case 2:
-        return 'Palabras';
-      case 3:
-        return 'Coplas';
-      case 4:
-        return 'Refranes';
+      case resourceTypesIdEnum.Leyendas :
+        return "Leyendas";
+      case resourceTypesIdEnum.Palabras:
+        return "Palabras";
+      case resourceTypesIdEnum.Coplas:
+        return "Coplas";
+      case resourceTypesIdEnum.Refranes:
+        return "Refranes";
       default:
-        return 'Desconocido';
+        return "Desconocido";
     }
   };
 
@@ -63,16 +66,16 @@ function TableGeneric({
             let badgeColor = "";
             if ("resourceTypesId" in item) {
               switch (item.resourceTypesId) {
-                case 1:
+                case resourceTypesIdEnum.Leyendas:
                   badgeColor = `${styles.badgeColor} ${styles["badgeColor--legends"]}`;
                   break;
-                case 2:
+                case resourceTypesIdEnum.Palabras:
                   badgeColor = `${styles.badgeColor} ${styles["badgeColor--words"]}`;
                   break;
-                case 3:
+                case resourceTypesIdEnum.Coplas:
                   badgeColor = `${styles.badgeColor} ${styles["badgeColor--couplets"]}`;
                   break;
-                case 4:
+                case resourceTypesIdEnum.Refranes:
                   badgeColor = `${styles.badgeColor} ${styles["badgeColor--proverbs"]}`;
                   break;
                 default:
@@ -90,7 +93,9 @@ function TableGeneric({
                 <td>{item.description.substring(0, 20)}</td>
 
                 <td>
-                  <div className={badgeColor}>{getResourceType(item.resourceTypesId)}</div>
+                  <div className={badgeColor}>
+                    {getResourceType(item.resourceTypesId)}
+                  </div>
                 </td>
                 <td>{formatDate(item.createDate)}</td>
                 <td className={styles.table_generic__arrow}>
