@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-const BASE_URL = "https://localhost:7019/Api";
+const BASE_URL = "https://localhost:7019";
 
 export interface itemResource {
   name: string;
@@ -16,8 +16,11 @@ interface ApiResponse<T> {
   errorType: number;
 }
 
-export const getResource = async (): Promise<AxiosResponse<ApiResponse<itemResource[]>>> => {
-  const response = await axios.get<ApiResponse<itemResource[]>>(BASE_URL + "/Resource");
-  console.log(response.data);
+export const getResource = async (): Promise<
+  AxiosResponse<ApiResponse<itemResource[]>>
+> => {
+  const response = await axios.get<ApiResponse<itemResource[]>>(
+    BASE_URL + "/Api/Resource",
+  );
   return response;
 };

@@ -26,7 +26,7 @@ function App() {
         setListResources(response.data.value);
       }
     };
-  
+
     fetchResources();
   }, []);
 

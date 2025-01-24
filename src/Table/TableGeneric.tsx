@@ -30,10 +30,9 @@ const formatDate = (dateString: string): string => {
 };
 
 function TableGeneric({ tableHeaders, items, tittles }: tableProps) {
-
   const getResourceType = (id: number): string => {
     switch (id) {
-      case resourceTypesIdEnum.Leyendas :
+      case resourceTypesIdEnum.Leyendas:
         return "Leyendas";
       case resourceTypesIdEnum.Palabras:
         return "Palabras";
